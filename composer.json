@@ -1,0 +1,34 @@
+{
+  "name": "rbennett/laravel-builder-cache",
+  "description": "WIP - a model cache based on builder SQL hash keys",
+  "type": "library",
+  "authors": [
+    {
+      "name": "Rob Bennett",
+      "email": "rjben@hotmail.com"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "genealabs/laravel-model-caching": "^0.2.58",
+    "predis/predis": "^1.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "RBennett\\ModelCache\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  },
+  "require-dev": {
+    "orchestra/testbench": "~3.6"
+  },
+  "scripts": {
+    "test": [
+      "vendor/bin/phpunit"
+    ]
+  }
+}
