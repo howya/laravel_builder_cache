@@ -23,6 +23,8 @@ class CachePerformanceTest extends TestCase
     {
         parent::setUp();
 
+        $this->withFactories(__DIR__ . '//../../Fixtures/Factories');
+
         Schema::defaultStringLength(191);
 
         $this->loadMigrationsFrom(__DIR__ . '/../../Fixtures/Migrations');

@@ -51,7 +51,7 @@ class CreateTestTable extends Migration
             $table->integer('integration_server_id')->unsigned()->index();
             $table->foreign('integration_server_id')->references('id')->on('integration_servers')->onDelete('cascade');
             $table->timestamps();
-            $table->unique(['integration_server_id', 'user_id']);
+            //$table->unique(['integration_server_id', 'user_id']);
         });
 
     }

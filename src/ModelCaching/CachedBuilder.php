@@ -51,18 +51,18 @@ class CachedBuilder extends Builder
 
         if ($cashed = Cache::tags($tables)->get($sqlHash)) {
             //Log::info('Cache Hit for key: ' . $sqlHash .', with tags: ' . print_r($tables, true));
-            return json_decode($cashed);
+            return json_decode(gzuncompress($cashed));
         } else {
             //Log::info('Cache Miss for key: ' . $sqlHash .', with tags: ' . print_r($tables, true));
             //Log::info('Cache Miss for SQL: ' . $sql . ' : ' . json_encode($binding));
             Cache::tags($tables)
                 ->put(
                     $sqlHash,
-                    json_encode(
+                    gzcompress(json_encode(
                         $result = $this->connection->select(
                             $sql, $this->getBindings(), !$this->useWritePdo
                         )
-                    ),
+                    ), 2),
                     10);
             return $result;
         }

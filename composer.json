@@ -8,6 +8,7 @@
       "email": "rjben@hotmail.com"
     }
   ],
+  "process-timeout": 0,
   "minimum-stability": "stable",
   "require": {
     "genealabs/laravel-model-caching": "^0.2.58",
