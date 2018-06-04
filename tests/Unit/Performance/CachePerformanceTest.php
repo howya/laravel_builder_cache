@@ -23,7 +23,7 @@ class CachePerformanceTest extends TestCase
     {
         parent::setUp();
 
-        $this->withFactories(__DIR__ . '//../../Fixtures/Factories');
+        $this->withFactories(__DIR__ . '/../../Fixtures/Factories');
 
         Schema::defaultStringLength(191);
 
@@ -33,6 +33,8 @@ class CachePerformanceTest extends TestCase
             '--class' => 'Tests\Fixtures\Seeds\TestDatabaseSeeder'
         ]);
 
+        $this->artisan('cache:clear');
+
     }
 
     /**
@@ -40,7 +42,10 @@ class CachePerformanceTest extends TestCase
      */
     protected function getEnvironmentSetUp($app)
     {
-        $app['config']->set('database.default', 'mysql');
+        //$app['config']->set('database.default', 'mysql');
+
+        //$app['config']->set('cache.default', 'memcached');
+
         $app['config']->set('cache.default', 'redis');
 
         $app['config']->set('database.redis', [
@@ -61,8 +66,8 @@ class CachePerformanceTest extends TestCase
     public function testPerformance()
     {
         dump(Config::get('cache.default'));
-        dump(Config::get('cache.stores.redis'));
-        dump(Config::get('database.redis'));
+        dump(Config::get('cache.stores.memcached'));
+        //dump(Config::get('database.redis'));
 
         $non_cached_start = microtime(true);
 

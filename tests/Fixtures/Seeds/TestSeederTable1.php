@@ -96,17 +96,17 @@ class TestSeederTable1 extends \Illuminate\Database\Seeder
         ]);
 
 
-        factory(UserIntegration::class, 200)->create([
+        factory(UserIntegration::class, 60)->create([
             'user_id' => 1,
             'integration_server_id' => 1
         ]);
 
-        factory(UserIntegration::class, 200)->create([
+        factory(UserIntegration::class, 60)->create([
             'user_id' => 2,
             'integration_server_id' => 2
         ]);
 
-        factory(UserIntegration::class, 200)->create([
+        factory(UserIntegration::class, 60)->create([
             'user_id' => 3,
             'integration_server_id' => 3
         ]);
